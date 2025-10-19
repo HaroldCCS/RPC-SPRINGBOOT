@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package form;
+
+option java_multiple_files = true;
+option java_package = "com.rpc.library.proto";
+option java_outer_classname = "FormServiceProto";
+
+// Servicio gRPC para manejar formularios
+service FormService {
+  rpc SubmitForm (FormRequest) returns (FormResponse);
+}
+
+// Mensaje de solicitud con datos del formulario
+message FormRequest {
+  string nombre = 1;
+  string apellido = 2;
+  int32 edad = 3;
+  string email = 4;
+}
+
+// Mensaje de respuesta con status de la operación
+message FormResponse {
+  string status = 1;      // OK o ERROR
+  string message = 2;     // Mensaje descriptivo
+  int64 timestamp = 3;    // Timestamp de la respuesta
+}
+
