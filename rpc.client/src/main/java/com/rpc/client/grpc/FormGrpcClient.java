@@ -6,11 +6,14 @@ import com.rpc.library.proto.FormRequest;
 import com.rpc.library.proto.FormResponse;
 import com.rpc.library.proto.FormServiceGrpc;
 import io.grpc.ManagedChannel;
+import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.grpc.client.GrpcChannelFactory;
 import org.springframework.stereotype.Component;
+
+import java.net.ConnectException;
 
 @Slf4j
 @Component
@@ -49,7 +52,11 @@ public class FormGrpcClient {
                     .build();
 
         } catch (StatusRuntimeException e) {
-            log.error("Error en llamada gRPC: {}", e.getStatus());
+            if (e.getStatus().getCode() == Status.Code.UNAVAILABLE) {
+                log.error("Error de conexion con servidor gRPC");
+            } else {
+                log.error("Error en llamada gRPC: {}", e.getStatus());
+            }
             return FormResponseDto.builder()
                     .status("ERROR")
                     .message("Error de comunicación con el servidor: " + e.getStatus().getDescription())
