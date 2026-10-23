@@ -1,4 +1,10 @@
-# Sistema RPC con gRPC y Spring Boot
+# 🔌 Sistema RPC con gRPC y Spring Boot
+
+![Java 21](https://img.shields.io/badge/Java_21-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot_3.5-6DB33F?style=flat-square&logo=springboot&logoColor=white)
+![gRPC](https://img.shields.io/badge/gRPC-244c5a?style=flat-square&logo=google&logoColor=white)
+![Protocol Buffers](https://img.shields.io/badge/Protobuf-4285F4?style=flat-square&logo=google&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
 
 Sistema de comunicación RPC usando gRPC en Spring Boot con 3 proyectos modulares que se comunican entre sí.
 
@@ -267,7 +273,7 @@ Este sistema implementa:
 - **Validación de datos** en el servidor
 - **Manejo centralizado de errores**
 
-## Autores
+---
 
-Sistema desarrollado como ejemplo de comunicación RPC con gRPC y Spring Boot.
+Hecho por [Harold Camargo](https://haroldsoftware.com) · [LinkedIn](https://www.linkedin.com/in/haroldcamargo2002/)
 
